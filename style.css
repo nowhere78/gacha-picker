@@ -528,3 +528,62 @@ body {
   cursor: pointer;
   z-index: 100;
 }
+
+/* Cross Promotion Badge */
+.promo-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 8px 15px;
+  border-radius: 30px;
+  text-decoration: none;
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2), 0 0 10px rgba(255, 255, 255, 0.1);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 100;
+}
+.promo-badge:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3), 0 0 15px rgba(219, 39, 119, 0.5);
+  border-color: rgba(219, 39, 119, 0.5);
+}
+.promo-badge .promo-icon {
+  font-size: 1.5rem;
+  animation: wiggle 2s infinite ease-in-out;
+}
+.promo-badge .promo-text {
+  font-family: 'Jua', sans-serif;
+  font-size: 0.85rem;
+  line-height: 1.2;
+  text-align: left;
+  opacity: 0.9;
+}
+.promo-badge .promo-text strong {
+  font-size: 0.95rem;
+  color: #f472b6;
+  text-shadow: 0 0 5px rgba(244, 114, 182, 0.3);
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-10deg); }
+  50% { transform: rotate(10deg); }
+}
+
+@media (max-width: 480px) {
+  .promo-badge {
+    top: auto;
+    bottom: 20px;
+    right: 50%;
+    transform: translateX(50%);
+  }
+  .promo-badge:hover {
+    transform: translateX(50%) translateY(-3px) scale(1.05);
+  }
+}
