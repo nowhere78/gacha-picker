@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>골라죠 - 운명의 가챠 머신</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    
+    <!-- Header -->
+    <header class="app-header">
+      <div class="logo">
+        <i class="fa-solid fa-cookie-bite"></i> GACHA PICKER
+      </div>
+    </header>
+
+    <!-- Screen 1: Input Setup -->
+    <section id="screen-setup" class="screen active">
+      <h2 class="screen-title">선택지를 적어주세요 <br><small>(최대 8장)</small></h2>
+      
+      <div class="input-grid" id="input-grid">
+        <!-- JS will populate memo slots here -->
+      </div>
+      
+      <div class="action-area">
+        <button id="btn-goto-gacha" class="btn btn-primary btn-block btn-lg" disabled>
+          추첨통에 넣기 <i class="fa-solid fa-arrow-turn-down"></i>
+        </button>
+      </div>
+    </section>
+
+    <!-- Transition Container (Overlay for animation) -->
+    <div id="transition-overlay" class="transition-overlay hidden">
+      <!-- Cloned memo pads and capsules will animate here -->
+    </div>
+
+    <!-- Screen 2: Lottery Drum -->
+    <section id="screen-machine" class="screen">
+      <div class="drum-container">
+        <!-- The big rotating drum -->
+        <div class="lottery-drum-wrapper">
+          <div class="drum-stand left-stand"></div>
+          <div class="drum-stand right-stand"></div>
+          
+          <div class="lottery-drum" id="lottery-drum">
+            <div class="drum-glass"></div>
+            <!-- Baffles inside the drum to catch balls -->
+            <div class="baffle baffle-1"></div>
+            <div class="baffle baffle-2"></div>
+            <div class="baffle baffle-3"></div>
+            
+            <div class="capsules-container" id="capsules-container">
+              <!-- Transparent Capsules with folded papers injected by JS -->
+            </div>
+          </div>
+        </div>
+        
+        <div class="spin-controls mt-4">
+          <button id="btn-spin" class="btn btn-primary btn-spin btn-lg">추첨 시작 ! <i class="fa-solid fa-rotate-right"></i></button>
+        </div>
+        
+        <!-- Dispenser area below the drum -->
+        <div class="dispenser-tray">
+          <div id="dispensed-capsule" class="dispensed-capsule hidden">
+            <div class="inner-paper"></div>
+          </div>
+        </div>
+      </div>
+      
+      <button id="btn-back" class="btn btn-secondary btn-floating"><i class="fa-solid fa-arrow-left"></i> 다시 입력</button>
+    </section>
+
+    <!-- Result Modal -->
+    <div id="result-modal" class="modal-overlay">
+      <div class="modal-content result-content">
+        <div class="celebration-particles" id="particles"></div>
+        <div class="result-capsule-container">
+          <div class="capsule-top"></div>
+          <div class="capsule-bottom"></div>
+          <div class="result-text-container">
+            <h1 id="result-text">짜장면</h1>
+          </div>
+        </div>
+        <button id="btn-reset" class="btn btn-primary btn-block">다시 돌리기</button>
+      </div>
+    </div>
+
+  </div>
+
+
+
+  <script src="app.js"></script>
+</body>
+</html>
