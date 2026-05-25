@@ -1,8 +1,10 @@
 {
+  "id": "/gacha-picker/",
   "name": "골라죠 - 가챠 픽커",
   "short_name": "가챠 픽커",
   "start_url": "./",
   "display": "standalone",
+  "orientation": "portrait",
   "background_color": "#0f172a",
   "theme_color": "#0f172a",
   "description": "최고의 인터랙티브 결정장애 해결 앱",
