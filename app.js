@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   const resultModal = document.getElementById('result-modal');
   const resultText = document.getElementById('result-text');
+  const btnCoupang = document.getElementById('btn-coupang');
   const btnReset = document.getElementById('btn-reset');
   const particles = document.getElementById('particles');
 
@@ -347,6 +348,11 @@ document.addEventListener('DOMContentLoaded', () => {
     top.style.background = winner.color;
     top.style.boxShadow = `0 0 20px ${winner.color}, inset -10px -10px 20px rgba(0,0,0,0.2)`;
 
+    // Coupang Partners Dynamic Link
+    btnCoupang.style.display = 'block';
+    // Use Coupang search URL as fallback, ideally replace with a generated partners URL later
+    btnCoupang.href = `https://www.coupang.com/np/search?component=&q=${encodeURIComponent(winner.text)}&channel=user`;
+
     resultModal.classList.add('show');
     
     setTimeout(() => {
@@ -389,6 +395,7 @@ document.addEventListener('DOMContentLoaded', () => {
     resultModal.classList.remove('show');
     resultModal.classList.remove('opened');
     dispensedCapsule.className = 'dispensed-capsule hidden';
+    btnCoupang.style.display = 'none';
     isSpinning = false;
     btnSpin.disabled = false;
   });
